@@ -1,0 +1,40 @@
+{
+  "name": "frontend",
+  "scripts": {
+    "dev": "solid-start dev",
+    "build": "solid-start build",
+    "start": "solid-start start",
+    "lint": "eslint --ext .js,.ts,.tsx ."
+  },
+  "type": "module",
+  "devDependencies": {
+    "@types/node": "^18.17.12",
+    "@typescript-eslint/eslint-plugin": "^6.5.0",
+    "@typescript-eslint/parser": "^6.5.0",
+    "esbuild": "^0.14.54",
+    "eslint": "^8.48.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-unicorn": "^48.0.1",
+    "postcss": "^8.4.29",
+    "prettier": "^3.0.3",
+    "solid-start-node": "^0.3.5",
+    "typescript": "^4.9.5",
+    "unocss": "^0.55.3",
+    "vite": "^4.4.9",
+    "vitest": "^0.34.3"
+  },
+  "dependencies": {
+    "@fontsource/inter": "^5.0.8",
+    "@solidjs/meta": "^0.28.6",
+    "@solidjs/router": "^0.8.3",
+    "lucide-solid": "^0.271.0",
+    "normalize.css": "^8.0.1",
+    "pocketbase": "^0.16.0",
+    "solid-js": "^1.7.11",
+    "solid-start": "^0.3.5",
+    "zod": "^3.22.2"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}

@@ -1,0 +1,345 @@
+@font-face {
+  font-family: "NewYork";
+  src: url(fonts/NewYork.ttf) format("truetype");
+}
+
+@font-face {
+  font-family: "NewYork";
+  font-style: italic;
+  src: url(fonts/NewYorkItalic.ttf) format("truetype");
+}
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/NewYorkExtraLarge-Black.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: italic;
+  font-weight: 900;
+  src: url("fonts/NewYorkExtraLarge-BlackItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/NewYorkExtraLarge-Bold.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: italic;
+  font-weight: 700;
+  src: url("fonts/NewYorkExtraLarge-BoldItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: normal;
+  font-weight: 800;
+  src: url("fonts/NewYorkExtraLarge-Heavy.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: italic;
+  font-weight: 800;
+  src: url("fonts/NewYorkExtraLarge-HeavyItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/NewYorkExtraLarge-Medium.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: italic;
+  font-weight: 500;
+  src: url("fonts/NewYorkExtraLarge-MediumItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/NewYorkExtraLarge-Regular.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: italic;
+  font-weight: 400;
+  src: url("fonts/NewYorkExtraLarge-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/NewYorkExtraLarge-Semibold.otf");
+}
+
+@font-face {
+  font-family: "NewYorkExtraLarge";
+  font-style: italic;
+  font-weight: 600;
+  src: url("fonts/NewYorkExtraLarge-SemiboldItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/NewYorkLarge-Black.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: italic;
+  font-weight: 900;
+  src: url("fonts/NewYorkLarge-BlackItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/NewYorkLarge-Bold.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: italic;
+  font-weight: 700;
+  src: url("fonts/NewYorkLarge-BoldItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: normal;
+  font-weight: 800;
+  src: url("fonts/NewYorkLarge-Heavy.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: italic;
+  font-weight: 800;
+  src: url("fonts/NewYorkLarge-HeavyItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/NewYorkLarge-Medium.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: italic;
+  font-weight: 500;
+  src: url("fonts/NewYorkLarge-MediumItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/NewYorkLarge-Regular.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: italic;
+  font-weight: 400;
+  src: url("fonts/NewYorkLarge-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/NewYorkLarge-Semibold.otf");
+}
+
+@font-face {
+  font-family: "NewYorkLarge";
+  font-style: italic;
+  font-weight: 600;
+  src: url("fonts/NewYorkLarge-SemiboldItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/NewYorkMedium-Black.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: italic;
+  font-weight: 900;
+  src: url("fonts/NewYorkMedium-BlackItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/NewYorkMedium-Bold.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: italic;
+  font-weight: 700;
+  src: url("fonts/NewYorkMedium-BoldItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: normal;
+  font-weight: 800;
+  src: url("fonts/NewYorkMedium-Heavy.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: italic;
+  font-weight: 800;
+  src: url("fonts/NewYorkMedium-HeavyItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/NewYorkMedium-Medium.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: italic;
+  font-weight: 500;
+  src: url("fonts/NewYorkMedium-MediumItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/NewYorkMedium-Regular.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: italic;
+  font-weight: 400;
+  src: url("fonts/NewYorkMedium-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/NewYorkMedium-Semibold.otf");
+}
+
+@font-face {
+  font-family: "NewYorkMedium";
+  font-style: italic;
+  font-weight: 600;
+  src: url("fonts/NewYorkMedium-SemiboldItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: normal;
+  font-weight: 900;
+  src: url("fonts/NewYorkSmall-Black.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: italic;
+  font-weight: 900;
+  src: url("fonts/NewYorkSmall-BlackItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: normal;
+  font-weight: 700;
+  src: url("fonts/NewYorkSmall-Bold.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: italic;
+  font-weight: 700;
+  src: url("fonts/NewYorkSmall-BoldItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: normal;
+  font-weight: 800;
+  src: url("fonts/NewYorkSmall-Heavy.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: italic;
+  font-weight: 800;
+  src: url("fonts/NewYorkSmall-HeavyItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: normal;
+  font-weight: 500;
+  src: url("fonts/NewYorkSmall-Medium.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: italic;
+  font-weight: 500;
+  src: url("fonts/NewYorkSmall-MediumItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: normal;
+  font-weight: 400;
+  src: url("fonts/NewYorkSmall-Regular.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: italic;
+  font-weight: 400;
+  src: url("fonts/NewYorkSmall-RegularItalic.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: normal;
+  font-weight: 600;
+  src: url("fonts/NewYorkSmall-Semibold.otf");
+}
+
+@font-face {
+  font-family: "NewYorkSmall";
+  font-style: italic;
+  font-weight: 600;
+  src: url("fonts/NewYorkSmall-SemiboldItalic.otf");
+}

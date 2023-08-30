@@ -1,0 +1,42 @@
+@import url("/fonts/NewYork.css");
+
+* {
+  line-height: 1.375;
+  margin: 0;
+  font-family: NewYork;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  line-height: 1.375;
+}
+
+h1,
+h2 {
+  font-family: NewYorkExtraLarge;
+  font-weight: 700;
+}
+p {
+  font-family: NewYorkSmall;
+}
+
+a {
+  font-family: NewYorkSmall;
+  font-weight: 500;
+}
+
+:is(button, optgroup, select, textarea):enabled:hover {
+  cursor: pointer;
+}
+
+body {
+  font-family: Inter;
+}
+
+fieldset {
+  border: none;
+  padding: 0;
+}
