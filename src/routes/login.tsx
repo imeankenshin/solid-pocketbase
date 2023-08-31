@@ -1,10 +1,7 @@
-import { z, object, string } from "zod"
+import { ZodError, object, string } from "zod"
 import ZodForm from "~/components/zod-form"
-import { useNavigate } from "solid-start"
-import { createSignal } from "solid-js"
 import PocketBase from "pocketbase"
-
-const pb = new PocketBase(import.meta.env.VITE_POCKETBASE_URL as string)
+import { createServerAction$, redirect } from "solid-start/server"
 
 const loginSchema = object({
   email: string().email(),
@@ -12,41 +9,38 @@ const loginSchema = object({
 })
 
 export default () => {
-  const navigate = useNavigate()
-  const [loading, setLoading] = createSignal(false)
+  const [action, { Form }] = createServerAction$(
+    async (form: FormData, { locals }) => {
+      const { email, password } = await loginSchema
+        .parseAsync(Object.fromEntries(form))
+        .catch((error: ZodError) => {
+          throw new Error(error.issues[0].message)
+        })
 
-  const login = async ({ values }: { values: z.infer<typeof loginSchema> }) => {
-    setLoading(true)
-    try {
-      await pb
+      await (locals.pb as PocketBase)
         .collection("users")
-        .authWithPassword(values.email, values.password)
-      navigate("/")
-    } catch (error) {
-      if (error instanceof Error) {
-        console.error("Error:", error.message)
-      }
-    } finally {
-      setLoading(false)
-    }
-  }
+        .authWithPassword(email, password)
+      return redirect("/")
+    },
+  )
+
   return (
     <main class="flex items-center justify-center hscreen wscreen">
       <ZodForm
+        component={Form}
         class="bg-white max-w-lg rounded-xl wfull m6 flex flex-col gap3 p4 rounded-md shadow-lg"
         schema={loginSchema}
-        onSubmit={login}
         header={<h1 class="my4">Login</h1>}
       >
         <p>
           If you don't have an account, <a href="/signup">sign up</a> instead.
         </p>
         <button
-          disabled={loading()}
+          disabled={action.pending}
           class="py3 px4 rounded-lg border-0"
           type="submit"
         >
-          {loading() ? "Loading..." : "Login"}
+          {action.pending ? "Loading..." : "Login"}
         </button>
       </ZodForm>
     </main>

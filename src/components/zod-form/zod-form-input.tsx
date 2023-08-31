@@ -46,6 +46,7 @@ export function ZodFormInput({
       maxLength: item.maxLength ?? undefined,
       ref: inputRef as HTMLInputElement,
       id: key,
+      name: key,
       "aria-describedby": item.description && `${key}-desc`,
       type: selectInputType(item),
       class: "p3 rounded-md border-solid border-gray-300",

@@ -17,7 +17,6 @@ import {
   Scripts,
   Title,
 } from "solid-start"
-import { UserModelProvider } from "./api/pocketbase"
 
 export default function Root() {
   return (
@@ -27,19 +26,19 @@ export default function Root() {
         <Meta charset="utf-8" />
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <UserModelProvider>
-        <Body class="bg-zinc-50">
-          <A href="/login">Log in</A>
-          <Suspense>
-            <ErrorBoundary>
-              <Routes>
-                <FileRoutes />
-              </Routes>
-            </ErrorBoundary>
-          </Suspense>
-          <Scripts />
-        </Body>
-      </UserModelProvider>
+      <Body class="bg-zinc-50">
+        <A link href="/login">
+          Log in
+        </A>
+        <Suspense>
+          <ErrorBoundary>
+            <Routes>
+              <FileRoutes />
+            </Routes>
+          </ErrorBoundary>
+        </Suspense>
+        <Scripts />
+      </Body>
     </Html>
   )
 }

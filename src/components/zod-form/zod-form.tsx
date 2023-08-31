@@ -1,4 +1,4 @@
-import { For, JSX } from "solid-js"
+import { For, JSX, ParentComponent } from "solid-js"
 import {
   ZodDefault,
   ZodEnum,
@@ -8,6 +8,7 @@ import {
   ZodString,
 } from "zod"
 import { ZodFormInput } from "./zod-form-input"
+import { Dynamic } from "solid-js/web"
 
 type InputTypeBase = ZodEnum<[string, ...string[]]> | ZodString | ZodNumber
 type InputTypeWithDefault = ZodDefault<InputTypeBase>
@@ -21,6 +22,7 @@ export type InputType =
 
 type Properties<T extends Record<string, InputType>> = {
   schema: ZodObject<T>
+  component?: ParentComponent
   onSubmit?: (context: {
     values: Zod.infer<ZodObject<T>>
     event: Event
@@ -44,6 +46,7 @@ export function ZodForm<T extends Record<string, InputType>>({
   onSubmit,
   children,
   style,
+  component,
   class: className,
   header,
   onParseError,
@@ -54,8 +57,6 @@ export function ZodForm<T extends Record<string, InputType>>({
   const submitHandler: JSX.EventHandlerUnion<HTMLFormElement, Event> = async (
     event,
   ) => {
-    event.preventDefault()
-
     const formValues: Record<string, string> = {}
     for (const key of Object.keys(formReferences)) {
       formValues[key] = formReferences[key].value
@@ -77,7 +78,12 @@ export function ZodForm<T extends Record<string, InputType>>({
   }
 
   return (
-    <form style={style} class={className} onSubmit={submitHandler}>
+    <Dynamic
+      component={component || "form"}
+      style={style}
+      class={className}
+      onSubmit={submitHandler}
+    >
       {header}
       <For each={Object.keys(schema.shape)}>
         {(key) => {
@@ -120,7 +126,7 @@ export function ZodForm<T extends Record<string, InputType>>({
         }}
       </For>
       {children}
-    </form>
+    </Dynamic>
   )
 }
 

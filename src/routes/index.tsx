@@ -1,33 +1,60 @@
 import { Book, PenTool, Users } from "lucide-solid"
-import { Show } from "solid-js"
-import { A, Title } from "solid-start"
-import { pb } from "~/api/pocketbase"
+import { A, Title, createRouteData, useRouteData } from "solid-start"
+import { getPocketBaseClient } from "~/api/pocketbase"
+
+export function routeData() {
+  return createRouteData((_, event) => {
+    return { pb: getPocketBaseClient(event) }
+  })
+}
 
 export default function () {
+  const data = useRouteData<typeof routeData>()
+  const pb = data()?.pb
   return (
     <main class="max-w-4xl mx-auto">
-      <Title>Hello World</Title>
-      <h1>Hello, user!</h1>
-      <Show when={!pb.authStore.isValid}>
-        <p>
-          You are not logged in. <A href="/login">Log in</A> or{" "}
-          <A href="/signup">sign up</A> to continue.
-        </p>
-      </Show>
-      <div class="flex gap2 p4 child:w22 ">
-        <div class="p4 bg-white border-solid rounded-xl border-2 border-gray-2 inline-flex gap2 flex-col items-center">
+      <Title>HomePage</Title>
+      <h1>
+        Hello,{" "}
+        {pb?.authStore.isValid ? pb.authStore.model?.username : "new one"}
+      </h1>
+      <p>
+        You are not logged in. <A href="/login">Log in</A> or{" "}
+        <A href="/signup">sign up</A> to continue.
+      </p>
+
+      <button
+        onClick={() => {
+          pb?.authStore.clear()
+        }}
+      >
+        Log out
+      </button>
+      <div class="flex gap2 p4 child:w22 child:text-gray-9 child:decoration-none">
+        <A
+          href="/journals/new"
+          class="p4 bg-white rounded-xl outline-none ring-2 ring-gray-2 hover:ring-blue focus:ring-blue inline-flex gap2 flex-col items-center"
+        >
           <PenTool strokeWidth={1.75} />
-          <p class="font-medium">Journaling</p>
-        </div>
-        <div class="p4 bg-white border-solid rounded-xl border-2 border-gray-2 inline-flex gap2 flex-col items-center">
+          <span class="font-medium">Journaling</span>
+        </A>
+        <A
+          href="/jornals"
+          class="p4 bg-white rounded-xl outline-none ring-2 ring-gray-2 hover:ring-blue focus:ring-blue inline-flex gap2 flex-col items-center"
+        >
           <Book strokeWidth={1.75} />
-          <p class="font-medium">History</p>
-        </div>
-        <div class="p4 bg-white border-solid rounded-xl border-2 border-gray-2 inline-flex gap2 flex-col items-center">
+          <span class="font-medium">History</span>
+        </A>
+
+        <A
+          href="/partners"
+          class="p4 bg-white rounded-xl outline-none ring-2 ring-gray-2 hover:ring-blue focus:ring-blue inline-flex gap2 flex-col items-center"
+        >
           <Users strokeWidth={1.75} />
-          <p class="font-medium">Partners</p>
-        </div>
+          <span class="font-medium">Partners</span>
+        </A>
       </div>
+      <h2>Your Goals</h2>
     </main>
   )
 }

@@ -1,24 +1,31 @@
-import PocketBase, { Admin, Record as PbRecord } from "pocketbase"
-import { JSX, createContext, createSignal, useContext } from "solid-js"
+import PocketBase from "pocketbase"
+import { Middleware } from "solid-start/entry-server"
+import { FetchEvent } from "solid-start"
 
 const baseURL = import.meta.env.VITE_POCKETBASE_URL as string
 
-export const pb = new PocketBase(baseURL)
-
-const UserModelContext = createContext<PbRecord | null | Admin>()
-
-export function UserModelProvider({ children }: { children: JSX.Element }) {
-  const [user, setUser] = createSignal(pb.authStore.model)
-  pb.authStore.onChange((token, model) => {
-    setUser(model)
-  })
-  return (
-    <UserModelContext.Provider value={user()}>
-      {children}
-    </UserModelContext.Provider>
-  )
+export function getPocketBaseClient(event: FetchEvent) {
+  return event.locals.pb as PocketBase
 }
 
-export function useUserModel() {
-  return useContext(UserModelContext)
+export const pocketBaseInit: Middleware = ({ forward }) => {
+  return async (event) => {
+    event.locals.pb = new PocketBase(baseURL)
+    const pb = getPocketBaseClient(event)
+    const request = event.request
+    pb.authStore.loadFromCookie(request.headers.get("cookie") || "")
+
+    try {
+      if (pb.authStore.isValid) await pb.collection("users").authRefresh()
+    } catch {
+      pb.authStore.clear()
+    }
+    const response = await forward(event)
+    // send back the default 'pb_auth' cookie to the client with the latest store state
+    pb.authStore.onChange(() => {
+      console.log("authStore changed")
+      response.headers.set("set-cookie", pb.authStore.exportToCookie())
+    })
+    return response
+  }
 }
