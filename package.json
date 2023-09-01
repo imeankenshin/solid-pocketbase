@@ -27,6 +27,7 @@
     "@fontsource/inter": "^5.0.8",
     "@solidjs/meta": "^0.28.6",
     "@solidjs/router": "^0.8.3",
+    "@supabase/supabase-js": "^2.33.1",
     "lucide-solid": "^0.271.0",
     "normalize.css": "^8.0.1",
     "pocketbase": "^0.16.0",
