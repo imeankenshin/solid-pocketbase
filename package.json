@@ -30,7 +30,6 @@
     "@supabase/supabase-js": "^2.33.1",
     "lucide-solid": "^0.271.0",
     "normalize.css": "^8.0.1",
-    "pocketbase": "^0.16.0",
     "solid-js": "^1.7.11",
     "solid-start": "^0.3.5",
     "zod": "^3.22.2"

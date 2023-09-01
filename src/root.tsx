@@ -6,7 +6,6 @@ import "normalize.css"
 import "./root.css"
 import { Suspense } from "solid-js"
 import {
-  A,
   Body,
   ErrorBoundary,
   FileRoutes,
@@ -27,9 +26,6 @@ export default function Root() {
         <Meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <Body class="bg-zinc-50">
-        <A link href="/login">
-          Log in
-        </A>
         <Suspense>
           <ErrorBoundary>
             <Routes>
